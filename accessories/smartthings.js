@@ -518,9 +518,9 @@ function SmartThingsAccessory(platform, device) {
                 if (that.device.capabilities['Energy Meter'] !== undefined) {
                     thisCharacteristic = that.getaddService(Service.Switch).addCharacteristic(CommunityTypes.TotalConsumption1);
                     thisCharacteristic.on('get', function(callback) {
-                        callback(null, Math.round(that.device.attributes.power));
+                        callback(null, Math.round(that.device.attributes.energy));
                     });
-                    that.platform.addAttributeUsage('power', that.deviceid, thisCharacteristic);
+                    that.platform.addAttributeUsage('energy', that.deviceid, thisCharacteristic);
                 }
                 if (device.capabilities['Power Meter'] !== undefined) {
                     thisCharacteristic = that.getaddService(Service.Switch).addCharacteristic(CommunityTypes.CurrentConsumption1);
